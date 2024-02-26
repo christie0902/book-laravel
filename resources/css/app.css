@@ -1,0 +1,11 @@
+html{
+    background-color: green;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+.book_container {
+    background-color: red;
+}
