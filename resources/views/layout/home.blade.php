@@ -19,7 +19,10 @@
 <div id="partners"></div> 
 {{-- the marker --}}
 @viteReactRefresh
-@vite('resources/js/partners.jsx')
+@vite('resources/js/partners.jsx')    
+
+<ul id="latest-books"></ul>
+@vite('resources/js/latest-book.js')
 
     @yield('main-content')
     @yield('footer')

@@ -12,6 +12,7 @@ export default ({ mode }) => {
                     "resources/css/style.scss",
                     "resources/js/app.js",
                     "resources/js/partners.jsx",
+                    "resources/js/latest-book.js"
                 ],
                 refresh: true,
             }),
