@@ -15,7 +15,7 @@ use App\Http\Controllers\Admin\BookController;
 // Route::middleware(['auth'])->group(function() {
 
 
-    Route::get('/', function () {
+    Route::get('/admin', function () {
         return view('admin.index');
     })->name('admin.index');
  

@@ -16,4 +16,10 @@ class BookController extends Controller
             ->get();
         return view("books.display", compact("books"));
     }
+
+    public function getDetail($id)
+    {
+        $book = Book::with('reviews.user')->findOrFail($id);
+        return view('books.detail', compact('book'));
+    }
 }
