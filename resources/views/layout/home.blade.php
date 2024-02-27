@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home</title>
     @vite('resources/css/style.scss')
+    
 </head>
 <body>
     <nav>
@@ -13,6 +14,13 @@
         <a href="#">Home</a>
         <a href="#">About</a>
     </nav>
+
+{{-- Where react will redener --}}
+<div id="partners"></div> 
+{{-- the marker --}}
+@viteReactRefresh
+@vite('resources/js/partners.jsx')
+
     @yield('main-content')
     @yield('footer')
 </body>
