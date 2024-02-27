@@ -9,22 +9,9 @@
     
 </head>
 <body>
-    <nav>
-        {{-- <a href="/" class="{{ $current_url == "/" ? "some_class" : ''}}">Home</a> --}}
-        <a href="#">Home</a>
-        <a href="#">About</a>
-    </nav>
-
-{{-- Where react will redener --}}
-<div id="partners"></div> 
-{{-- the marker --}}
-@viteReactRefresh
-@vite('resources/js/partners.jsx')    
-
-<ul id="latest-books"></ul>
-@vite('resources/js/latest-book.js')
-
-    @yield('main-content')
-    @yield('footer')
+    @include('common.navigation', [
+        'current_page' => $current_page
+    ])
+    @yield('content')
 </body>
 </html>

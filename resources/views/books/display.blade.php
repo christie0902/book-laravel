@@ -1,9 +1,22 @@
-@extends('layout.home')
+@extends('layout.home', [
+    'current_page' => 'home'    
+])
 
-@section('main-content')
-<h1>Welcome to our BOOK FORUM</h1>
+@section('content')
+    <h1>WELCOME 
+    {{-- if authenticated = true --}}
+    @auth 
+        {{ auth()->user()->name }}
+    @endauth
+    </h1>
+    <div id="partners"></div>
+    @viteReactRefresh
+    @vite('resources/js/partners.jsx')    
+    
+    <ul id="latest-books"></ul>
+    @vite('resources/js/latest-book.js')
 
-<div class="book_container">
+    <div class="book_container">
     @foreach($books as $book)
     <div class="book_card">
     <h2 class="book_title">Title: {{$book->title}}</h2>

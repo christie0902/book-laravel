@@ -21,3 +21,4 @@ Route::get('/', [BookController::class, 'display'])->name('home');
 Route::get('/test/model', [TestController::class, 'arrayResponse'])->name('apiTest');
 Route::get('/test/model', [TestController::class, 'modelResponse']);
 Route::get('/test/collection', [TestController::class, 'collectionResponse']);
+Route::get('/books/latest', [TestController::class, 'latest']);

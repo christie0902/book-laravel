@@ -34,5 +34,15 @@ class TestController extends Controller
     {
         $books = Book::where('title', 'like', '%harry potter%')->get();
         return $books;
-    }
+   }
+
+   public function latest()
+   {
+    $books = Book::orderBy('publication_date', 'desc')
+            ->with('authors')
+            ->limit(10)
+            ->get();
+
+        return $books;
+   }
 }

@@ -1,9 +1,11 @@
  const getData = async () => {
   const response = await fetch(
-    "https://classes.codingbootcamp.cz/assets/classes/books-api/latest-books.php"
+    //display as block absolute, top of the screen
+    "/books/latest"
   );
   const data = await response.json();
   //   console.log(data);
+  //loader display none
   processData(data);
 };
 
