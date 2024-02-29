@@ -9,6 +9,7 @@
         {{ auth()->user()->name }}
     @endauth
     </h1>
+    @include('common.search')
     <div id="partners"></div>
     @viteReactRefresh
     @vite('resources/js/partners.jsx')    

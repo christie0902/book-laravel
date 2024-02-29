@@ -22,4 +22,15 @@ class BookController extends Controller
         $book = Book::with('reviews.user')->findOrFail($id);
         return view('books.detail', compact('book'));
     }
+
+    public function search(Request $request)
+    {
+        $search = $request->query('search');
+
+        $books = Book::where('title', 'like', "%{$search}%")
+            ->limit(5)
+            ->get();
+
+        return $books;
+    }
 }
