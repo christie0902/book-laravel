@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Book;
 use App\Models\Category;
+use App\Models\Review;
 
 class BookController extends Controller
 {
@@ -66,4 +67,10 @@ class BookController extends Controller
         return redirect()->back()->with('success_message', 'Book data saved');
     }
     
+    public function deleteReview($book_id, $id)
+    {
+        $review=Review::findOrFail($id)->delete();
+        session()->flash('success_message', "Review has been deleted!");
+        return redirect()->back();
+    }
 }

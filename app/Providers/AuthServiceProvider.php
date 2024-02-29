@@ -22,7 +22,7 @@ class AuthServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Gate::define('admin', function ($user) {
-            return $user->id === 1;
+            return $user->role === 'admin';
             // return $user->id === 1 || $user->id === 2;
             // if(in_Array($user->id, [
             //     1,
@@ -43,5 +43,8 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('owner', function ($user) {
             return substr($user->email, -12) === 'data4you.cz';
         });
+
+        // Gate::define('has_role', function ($user, $role_name) {
+        //     return $user->role === 'admin';})
     }
 }

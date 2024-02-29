@@ -10,6 +10,7 @@
     @endauth
     </h1>
     @include('common.search')
+    <h3><a href="{{ route('bookshops.list') }}">Bookshops</a></h3>
     <div id="partners"></div>
     @viteReactRefresh
     @vite('resources/js/partners.jsx')    

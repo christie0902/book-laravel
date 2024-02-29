@@ -21,6 +21,13 @@
         <li>
             Writer: {{ $review->user->name }} <br>
             Review: {{$review->text}}
+            @can('admin')
+            <form action="{{route('review.delete',['book_id' => $book->id,'id'=>$review->id])}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button>Delete</button>
+            </form>
+            @endcan
         </li>
     @endforeach
 </ul>
@@ -28,6 +35,7 @@
 <p style="font-size:1rem; text-align:center;">No reviews yet.</p>
 @endif
 
+@auth
 <a href="{{ route('review.create', ['book_id' => $book->id]) }}">Write Review</a>
-
+@endauth
 @endsection

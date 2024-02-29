@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookshopController;
 
 
 
@@ -42,4 +43,8 @@ Route::post('/book/{book_id}/review/create', [ReviewController::class, 'create']
 
 
 Route::get('/api/users', [UserController::class, 'index'])->name('users.get');
+
+Route::get('/bookshops', [BookshopController::class, 'list'])->name('bookshops.list');
+Route::get('/bookshops/{id}', [BookshopController::class, 'getDetails'])->name('bookshop.detail');
+
 
