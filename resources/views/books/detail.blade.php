@@ -10,7 +10,7 @@
 <p>Pubished date: {{$book->publication_date}}</p>
 <p>Language: {{$book->language}}</p>
 <p>Pages: {{$book->pages}}</p>
-<div>{{$book->description}}</div>
+<div>{{strip_tags($book->description)}}</div>
 </div>
 <h1>REVIEWS</h1>
 

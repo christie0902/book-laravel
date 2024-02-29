@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\Api\TestController;
+use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -18,6 +20,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route:middleware('can:admin')->group(function () {
+//     //define the group of paths
+// });
+// Route::group(['middleware' => 'can:admin'], function() {
+//     Route::get('/admin/dashboard', [AdminController::class, 'dashboard']);
+//     // ...
+// });
+
 Route::get('/', [BookController::class, 'display'])->name('home');
 Route::get('/book/{book_id}', [BookController::class, 'getDetail'])->name('book.details');
 Route::get('/test/model', [TestController::class, 'arrayResponse'])->name('apiTest');
@@ -29,3 +39,7 @@ Route::get('/book/{book_id}/review/create', function ($book_id) {
     return view('books.add-review', ['book_id' => $book_id]);
 })->name('review.create');
 Route::post('/book/{book_id}/review/create', [ReviewController::class, 'create'])->name('review.add');
+
+
+Route::get('/api/users', [UserController::class, 'index'])->name('users.get');
+
